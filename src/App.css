@@ -1,0 +1,206 @@
+.m-t-10 {
+  margin-top: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+:focus { outline: none; }
+::-moz-focus-inner {border-color:transparent;}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    max-width:100%;
+
+    background: rgb(255, 255, 255);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* #root{
+    width: 100%;
+    height: 100%;
+}
+.BrowserRouter{
+    width: 100%;
+    height: 100%;
+} */
+.container{
+
+    margin:0 0;
+    padding:0 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@-webkit-keyframes headerToolbarAnimationScrollDown {
+    from {height: 8rem;}
+    to {height: 2.5rem;}
+}
+  
+@-webkit-keyframes  headerToolbarAnimationScrollUp {
+    from {height: 2.5rem;}
+    to  {height: 8rem;}
+}
+
+  
+.headerToolbar {
+    overflow: hidden;
+    position:fixed;
+    top: 0;
+
+    background: #F29F05;
+    width: 100vw;
+    max-width: 100%;
+    height: 8rem;
+    /* position: fixed; */
+
+    font-family: 'Ubuntu', sans-serif;
+    /* font-weight:bold; */
+    letter-spacing: 0.2rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    z-index: 99;
+}
+.headerToolbarLeft{
+    background: #ffffff;
+    margin:0;
+    padding:0;
+    /* width: 8rem;
+    height: 8rem; */
+    max-width: 8rem;
+    max-height: 8rem;
+}
+.homePageIcon{
+    margin:0;
+    padding:0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: 0% 0%;
+    transition: 0.5s;
+}
+.homePageIconImg{
+    background: #F29F05;
+    margin:0;
+    padding:0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* object-position: 0% 0%; */
+    transition: 0.5s;
+}
+
+.headerToolbarCenter{
+    background: #ffffff;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+
+    align-self: flex-end;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.headerToolbarRight{
+    background: #ffffff;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+
+    align-self: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.button{
+    background: #F29F05;
+
+    color: #ffffff;
+    text-align: center;
+    font-size: 1rem;
+
+    margin:0 0;
+    padding:0.5rem 1rem;
+    
+    max-width: 100%;
+    max-height: 100%;
+
+    transition: 0.5s;
+
+    outline: none;
+    
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+.buttonName{
+    margin:0 0;
+    padding-top:0 0;
+}
+
+.loginButton{
+    /* letter-spacing: 0.2rem; */
+}
+/* on focus */
+.homePageIconImg:hover{
+    transition: 0.5s;
+    opacity: 0.5;
+}
+
+.button:hover{
+    transition: 0.5s;
+    background-color:#F29F05;
+    color: #23260D;
+    /* color: rgba(244, 175, 46, 1); */
+}
+
+.button:focus{
+    outline: none;
+    background-color:#F29F05;
+    color: #23260D;
+}
+
+
+.contentContainer{
+    display: flex;
+    margin-top:8rem;
+
+    /* flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center; */
+    /* max-width: 100rem;
+    min-width: 100rem; */
+    width: 100vw;
+    min-height: 200vh;
+
+    /* border-left:  dashed ;
+    border-right:  dashed;
+    border-color: rgba(226, 191, 113, 1); */
+}
+
+.footer-bar{
+    font-family: 'GillSansMT';
+    font-style: normal;
+    width: 100%;
+    height: 40rem;
+
+    background: #F29F05;
+    color: rgba(255,255,255,1);
+}
+
+.color-1-hex { color: #23260D; }
+.color-2-hex { color: #F2B705; }
+.color-3-hex { color: #F29F05; }
+.color-4-hex { color: #F2EBDF; }
+.color-5-hex { color: #F28705; }
