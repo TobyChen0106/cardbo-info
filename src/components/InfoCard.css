@@ -1,0 +1,35 @@
+.card-data-container{
+    border-style: solid;
+    border-width: 0.1rem;
+    border-radius: 0.5rem;
+    border-color: #58a8d7;
+
+    width: 20rem;
+    height: 10rem;
+    color: black;
+
+    word-wrap: break-word;
+    /* white-space: nowrap; */
+    overflow: hidden !important;
+    /* text-overflow: ellipsis; */
+}
+.cardTitle{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.infoTitle{
+    font-size: 1rem;
+
+}
+.cardName{
+    font-size: 1.2rem;
+    
+}
+.infoID{
+    font-weight: bold;
+}
+.infoSummary{
+    font-size: 0.8rem;
+
+}

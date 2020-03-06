@@ -20,7 +20,19 @@ router.post('/users', (req, res) => {
                     res.json("New user created!");
                 })
             } else {
-                res.json("This lineID have been registered!");
+                const newUser = {
+                    userResponse: this.state.userId,
+                    displayName: this.state.displayName,
+                    nickName: this.state.nickName,
+                    age: this.state.age,
+                    gender: this.state.gender,
+                    cards: userCards,
+                    stores: []
+                };
+                userResponse = userdata;
+                userResponse.save().then((user) => {
+                    res.json("User Data modified!");
+                })
             }
         })
     }
@@ -41,17 +53,20 @@ router.post('/check-users', (req, res) => {
                 console.log(err);
                 res.json("Server User find ID Error." + String(err));
             }
-            else if (!userResponse) {
-                res.json({ IDregistered: false });
-            } else {
-                res.json({ IDregistered: true });
+            // else if (!userResponse) {
+            //     res.json({ IDregistered: false });
+            // } else {
+            //     res.json({ IDregistered: true });
+            // }
+            else{
+                res.json(userResponse);
             }
         })
     }
 });
 
 router.get('/cards', (req, res) => {
-    Card.find({  }, (err, data) => {
+    Card.find({}, (err, data) => {
         if (err) {
             console.log(err);
         }
@@ -79,7 +94,7 @@ router.get('/all-infos', (req, res) => {
 router.get('/infos/:id', (req, res) => {
     const infoID = req.params.id;
     console.log(infoID);
-    Info.findOne({'infoID':infoID}, (err, data) => {
+    Info.findOne({ infoID: infoID }, (err, data) => {
         if (err) {
             console.log(err);
         }
@@ -87,6 +102,31 @@ router.get('/infos/:id', (req, res) => {
             res.json(data);
         }
     })
+});
+
+router.post('/saveinfos', (req, res) => {
+    const infodata = req.body;
+    console.log(infodata)
+    Info.findOne({ infoID: infodata.infoID }, (err, infoResponse) => {
+        if (err) {
+            console.log(err);
+            res.json("Server User find ID Error." + String(err));
+        }
+        if (infoResponse) {
+            infoResponse.infoTitle = infodata.infoTitle;
+            infoResponse.infoSummary = infodata.infoSummary;
+            infoResponse.dueDate = infodata.dueDate;
+            infoResponse.contents = infodata.contents;
+            console.log(infoResponse);
+            infoResponse.save().then((user) => {
+                res.json("Data saved!");
+            })
+        } else {
+            res.json("INFO ID ERROR!");
+            console.log("INFO ID ERROR!");
+        }
+    })
+
 });
 
 module.exports = router;

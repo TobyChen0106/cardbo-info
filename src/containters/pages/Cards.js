@@ -33,7 +33,7 @@ class Cards extends Component {
 		})
 
 	}
-
+	
 	render() {
 		// const cardLists = this.state.cards.map((i, index) => (
 		const cardLists = tempCardLists.map((i, index) => (

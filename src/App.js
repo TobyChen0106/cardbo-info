@@ -26,18 +26,16 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container">
-          <div className="contentContainer">
             <Switch >
               {/* <Route exact path="/" component={Stores}/> */}
               <Route exact path="/infos/:status?/:id?" component={Infos} />
               <Route exact path="/cards" component={Cards} />
               <Route exact path="/stores" component={Cards} />
               <Route exact path="/users" component={Cards} />
+              <Route exact path="/register" component={RegisterPage} />
+              <Route exact path="/memberpage" component={ModifyPage} />
               <Route render={() => <h1>Data Not Found.</h1>} />
             </Switch>
-          </div>
-        </div>
       </BrowserRouter>
     )
   }
