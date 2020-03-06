@@ -69,6 +69,9 @@ class App extends Component {
         })
         liff.init(async (data) => {
             let profile = await liff.getProfile();
+            if (!profile.userId) {
+                window.alert("USER ID ERROR!");
+            } 
             this.setState({
                 displayName: profile.displayName,
                 userId: profile.userId
@@ -77,14 +80,13 @@ class App extends Component {
     }
     componentDidMount() {
         if (!this.state.userId) {
-            window.alert("USER ID ERROR!");
+            // window.alert("USER ID ERROR!");
         } else {
             fetch('/api/check-users').catch(function (error) {
                 window.alert("[Error] " + error);
             }).then(
                 res => res.json()
             ).then((data) => {
-                var IDregistered = false;
                 if (data) {
                     IDregistered = true;
                     this.setState({ IDregistered: true });
@@ -137,10 +139,10 @@ class App extends Component {
             ).then((data) => {
                 console.log(data);
             }).then(() => {
-                liff.sendMessages([{
-                    'type': 'text',
-                    'text': "Done!"
-                }])
+                // liff.sendMessages([{
+                //     'type': 'text',
+                //     'text': "Done!"
+                // }])
             }).catch(function (error) {
                 window.alert("Error sending message: " + error);
             }).then(() => {
