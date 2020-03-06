@@ -88,7 +88,6 @@ class App extends Component {
                 res => res.json()
             ).then((data) => {
                 if (data) {
-                    IDregistered = true;
                     this.setState({ IDregistered: true });
                     this.setState({ agreeCheck: true });
 
