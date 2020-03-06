@@ -41,6 +41,7 @@ class App extends Component {
             cards: [{
                 bank: '',
                 card: '',
+                cardID: '',
                 selectedBank: null,
                 selectedCard: null,
                 options: []

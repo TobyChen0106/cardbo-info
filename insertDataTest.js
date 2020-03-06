@@ -56,7 +56,7 @@ Card.find({ cardBank: '台新銀行' }, (err, data) => {
         const dataCardNames = data.map((i, index)=>(i.cardName));
         console.log(data)
         for(var i=0 ; i<readyCards.length  ;++i){
-            if(dataCardNames.indexOf(readyCards[i]) < 0){
+            if(dataCardNames.indexOf(readyCards[i]) >= 0){
                 
                 var newCard = new Card({
                     cardBank:'台新銀行',
