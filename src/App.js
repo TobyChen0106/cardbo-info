@@ -32,8 +32,8 @@ class App extends Component {
               <Route exact path="/cards" component={Cards} />
               <Route exact path="/stores" component={Cards} />
               <Route exact path="/users" component={Cards} />
-              <Route exact path="/register" component={RegisterPage} />
-              <Route exact path="/memberpage" component={ModifyPage} />
+              {/* <Route exact path="/register" component={RegisterPage} />
+              <Route exact path="/memberpage" component={RegisterPage} /> */}
               <Route render={() => <h1>Data Not Found.</h1>} />
             </Switch>
       </BrowserRouter>
