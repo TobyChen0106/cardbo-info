@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+
 const setMongoMixedWithBadKeys = data =>
     Array.isArray(data)
         ? data.map(setMongoMixedWithBadKeys)
@@ -15,52 +16,37 @@ const getMongoMixedWithBadKeys = data =>
             ? Object.entries(data).reduce((a, [key, value]) => ({ ...a, [key.replace('__', '.').replace('___', '$')]: getMongoMixedWithBadKeys(value) }), {})
             : data
 
-const Note = new Schema({
-    updateTime: {
-        type: String,
-        required: true
-    },
-    updateSource: {
-        type: String,
-        required: true
-    },
-})
-
-const CardSchema = new Schema({
-    cardID: { // e.g. ts0001
-        type: String,
-        required: true
-    },
-    cardName: {
-        type: String,
-        required: true
-    },
-    bankName: {
-        type: String,
-        required: true,
-        default: "台新銀行"
-    },
-    imageUrl: {
+const UserSchema = new Schema({
+    lineID: {
         type: String,
         // required: true
     },
-    imageRotate: {
-        type: Boolean,
-        // required: true
-    },
-    imageLocal: {
+    displayName: {
         type: String,
         // required: true
     },
-    offers: {
+    nickName: {
+        type: String,
+        required: true
+    },
+    age:{
+        type: Number,
+        required: true
+    },
+    gender: {
+        type: String,
+        required: true
+    },
+    cards:{
+        // cardID, e.g., ts0001
         type: [String],
-        required: true
+        default: undefined,
     },
-    note: {
-        type: Note,
-        // required: true
+    favoriteStores:{
+        type: [String],
+        default: undefined,
     }
 });
 
-const Card = mongoose.model('Card', CardSchema);
-module.exports = Card;
+const User = mongoose.model('User', UserSchema, "users");
+module.exports = User;

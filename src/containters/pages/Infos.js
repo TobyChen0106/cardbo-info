@@ -20,6 +20,7 @@ class Infos extends Component {
 				infoTitle: "",
 				infoSummary: "",
 				dueDate: "",
+				startDate: "",
 				contents: ""
 			},
 			allInfoData: [],
@@ -54,13 +55,14 @@ class Infos extends Component {
 			).then((data) => {
 				this.setState({
 					infoData: {
-						infoTitle: data.infoTitle,
-						infoSummary: data.infoSummary,
-						dueDate: data.dueDate,
-						contents: data.contents
+						infoTitle: data.offerName,
+						infoSummary: data.offerAbstract,
+						startDate: data.expiration.beginDate,
+						dueDate: data.expiration.endDate,
+						contents: data.reward.contents
 					}
 				});
-				console.log(data.dueDate)
+				// console.log(data.dueDate)
 			})
 		}
 	}
@@ -70,12 +72,14 @@ class Infos extends Component {
 			document.addEventListener('input', (event) => {
 				const title = document.getElementById("titleTextarea").value;
 				const summary = document.getElementById("summaryTextarea").value;
+				const startDate = document.getElementById("startDateTextarea").value;
 				const dueDate = document.getElementById("dueDateTextarea").value;
 				const contents = document.getElementById("markdownTextarea").value;
 				this.setState({
 					infoData: {
 						infoTitle: title,
 						infoSummary: summary,
+						startDate: startDate,
 						dueDate: dueDate,
 						contents: contents
 					},
@@ -113,7 +117,7 @@ class Infos extends Component {
 					return (
 						<div className="ReactMarkdown-pane">
 							<div className="result-title">{this.state.infoData.infoTitle}</div>
-							<div className="result-dueDate">{this.state.infoData.dueDate}</div>
+							<div className="result-dueDate">{this.state.infoData.startDate} - {this.state.infoData.dueDate}</div>
 							<ReactMarkdown
 								className="result"
 								source={this.state.infoData.contents}
@@ -138,7 +142,11 @@ class Infos extends Component {
 								</div>
 								<div className="summary">
 									<div>Summary</div>
-									<textarea cols="50" rows="3" className="editor-textarea" id="summaryTextarea" defaultValue={this.state.infoData.infoSummary} />
+									<textarea cols="50" rows="3" className="editor-textarea-summary" id="summaryTextarea" defaultValue={this.state.infoData.infoSummary} />
+								</div>
+								<div className="dueDate">
+									<div>start date</div>
+									<textarea cols="50" rows="1" className="editor-textarea" id="startDateTextarea" defaultValue={this.state.infoData.startDate} />
 								</div>
 								<div className="dueDate">
 									<div>due date</div>
@@ -152,7 +160,7 @@ class Infos extends Component {
 									<div className="contents-holder">
 										<div className="contents-title">Contents</div>
 										<div className="editor-pane">
-											<textarea cols="50" rows="50" className="editor-textarea" id="markdownTextarea" defaultValue={this.state.infoData.contents} />
+											<textarea cols="50" rows="50" className="editor-textarea-contents" id="markdownTextarea" defaultValue={this.state.infoData.contents} />
 										</div>
 									</div>
 									<div className="preview-holder">
@@ -160,7 +168,7 @@ class Infos extends Component {
 										<div className="result-pane">
 											<div className="ReactMarkdown-pane">
 												<div className="result-title">{this.state.infoData.infoTitle}</div>
-												<div className="result-dueDate">{this.state.infoData.dueDate}</div>
+												<div className="result-dueDate">{this.state.infoData.startDate} - {this.state.infoData.dueDate}</div>
 												<ReactMarkdown
 													className="result"
 													source={this.state.infoData.contents}
@@ -193,13 +201,13 @@ class Infos extends Component {
 
 			const dataList = this.state.allInfoData.map((i, index) => (
 				<div className="info-card-holder">
-					<NavLink to={"/infos/edit/" + i.infoID} className="info-card-link" style={{ textDecoration: 'none' }}>
+					<NavLink to={"/infos/edit/" + i.offerID} className="info-card-link" style={{ textDecoration: 'none' }}>
 						<InfoCard
 							key={index}
-							infoID={i.infoID}
-							cardName={i.cardName}
-							infoTitle={i.infoTitle}
-							infoSummary={i.infoSummary}
+							infoID={i.offerID}
+							cardName="CardName"
+							infoTitle={i.offerName}
+							infoSummary={i.offerAbstract}
 						/>
 					</NavLink>
 				</div>

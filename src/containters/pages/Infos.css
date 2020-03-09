@@ -4,6 +4,7 @@
 }
 .edit-mode-container{
     font-family: 'cwTeXYen', sans-serif;
+    max-width: 100%;
 }
 .ReactMarkdown-pane{
     font-family: 'cwTeXYen', sans-serif;
@@ -55,8 +56,7 @@
 .editor-container{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
+    flex-wrap: wrap;
     width: 100%;
     margin:0;
     padding-top: 2rem;
@@ -87,13 +87,25 @@
 .editor-pane{
     /* margin:5rem; */
     height:100%;
-    width:40rem;
+    width:100%;
 
 }
 .editor-textarea{
-    width:40rem;
-    height:100%;
+    width:60%;
+    height:1.5rem;
     color:#ffffff;
+    background-color: #272727;
+    /* padding:5%; */
+}
+.editor-textarea-contents{
+    color:#ffffff;
+    background-color: #272727;
+    min-width: 60%;
+    padding:0.5rem;
+}
+.editor-textarea-summary{
+    color:#ffffff;
+    width:60%;
     background-color: #272727;
     padding:0.5rem;
 }
@@ -117,8 +129,9 @@
     /* margin-right:5rem; */
 }
 .preview-holder{
-    margin-left:5rem;
-    margin-right:5rem;
+    /* width:30%; */
+    margin-left:5%;
+    margin-right:5%;
 }
 .preview-title{
     font-size: 2rem;

@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const Card = require('../models/Card');
 const Info = require('../models/Info');
+const Offer = require('../models/offer');
 
 router.post('/users', (req, res) => {
     const userdata = req.body;
@@ -78,8 +79,22 @@ router.get('/cards', (req, res) => {
     })
 });
 
+router.post('/card-id2name', (req, res) => {
+    const cardID = req.body.cardID;
+    Card.find({cardID:cardID}, (err, data) => {
+        if (err) {
+            console.log(err);
+        }
+        else if (!data) {
+            console.log("[ERROR] EMPTY DATA!");
+        } else {
+            res.json(data.cardName);
+        }
+    })
+});
+
 router.get('/all-infos', (req, res) => {
-    Info.find({}, (err, data) => {
+    Offer.find({}, (err, data) => {
         if (err) {
             console.log(err);
         }
@@ -92,9 +107,9 @@ router.get('/all-infos', (req, res) => {
 });
 
 router.get('/infos/:id', (req, res) => {
-    const infoID = req.params.id;
-    console.log(infoID);
-    Info.findOne({ infoID: infoID }, (err, data) => {
+    const offerID = req.params.id;
+    console.log(offerID);
+    Offer.findOne({ offerID: offerID }, (err, data) => {
         if (err) {
             console.log(err);
         }
