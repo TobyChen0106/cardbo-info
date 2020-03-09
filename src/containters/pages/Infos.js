@@ -93,6 +93,7 @@ class Infos extends Component {
 			infoTitle: this.state.infoData.infoTitle,
 			infoSummary: this.state.infoData.infoSummary,
 			dueDate: this.state.infoData.dueDate,
+			startDate: this.state.infoData.startDate,
 			contents: this.state.infoData.contents
 		}
 		fetch('/api/saveinfos', {

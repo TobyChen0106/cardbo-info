@@ -122,16 +122,19 @@ router.get('/infos/:id', (req, res) => {
 router.post('/saveinfos', (req, res) => {
     const infodata = req.body;
     console.log(infodata)
-    Info.findOne({ infoID: infodata.infoID }, (err, infoResponse) => {
+    Info.findOne({ offerID: infodata.infoID }, (err, infoResponse) => {
         if (err) {
             console.log(err);
             res.json("Server User find ID Error." + String(err));
         }
         if (infoResponse) {
-            infoResponse.infoTitle = infodata.infoTitle;
-            infoResponse.infoSummary = infodata.infoSummary;
-            infoResponse.dueDate = infodata.dueDate;
-            infoResponse.contents = infodata.contents;
+            // infoResponse.offerID = infodata.infoTitle;
+            infoResponse.offerName = infodata.infoTitle;
+            infoResponse.offerAbstract = infodata.infoSummary;
+            infoResponse.expiration.beginDate = infodata.startDate;
+            infoResponse.expiration.endDate = infodata.dueDate;
+            infoResponse.reward.contents = infodata.contents;
+
             console.log(infoResponse);
             infoResponse.save().then((user) => {
                 res.json("Data saved!");
