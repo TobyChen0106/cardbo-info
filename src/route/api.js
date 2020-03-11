@@ -75,6 +75,7 @@ router.get('/cards', (req, res) => {
             console.log("[ERROR] EMPTY DATA!");
         } else {
             res.json(data);
+            // console.log(data);
         }
     })
 });
@@ -122,7 +123,7 @@ router.get('/infos/:id', (req, res) => {
 router.post('/saveinfos', (req, res) => {
     const infodata = req.body;
     console.log(infodata)
-    Info.findOne({ offerID: infodata.infoID }, (err, infoResponse) => {
+    Offer.findOne({ offerID: infodata.infoID }, (err, infoResponse) => {
         if (err) {
             console.log(err);
             res.json("Server User find ID Error." + String(err));

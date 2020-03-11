@@ -16,6 +16,7 @@ class InfoCard extends Component {
     }
 
     render() {
+        // console.log(this.state.cardName)
         return (
             <div className="card-data-container">
                 <div className="cardTitle">

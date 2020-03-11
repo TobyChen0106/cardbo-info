@@ -178,7 +178,8 @@
     
 }
 .info-card-holder{
-    max-width: 20rem;
+    width: 25%;
+    height: 10rem;
     font-family: 'cwTeXYen', sans-serif;
     margin:2rem;
 }
@@ -196,4 +197,20 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+}
+.my-loading{
+    background-color: #58a8d7;
+    width: 100vw;
+    height: 100vh;
+    padding-left: 40vw;
+    padding-right: 40vw;
+    padding-top: 40vh;
+    padding-bottom: 40vh;
+}
+
+.select-holder{
+    color:black;
+    vertical-align: center;
+    width:40%;
+    margin-left:2%;
 }

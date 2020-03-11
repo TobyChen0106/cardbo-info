@@ -200,7 +200,6 @@ class App extends Component {
         }))
     }
     render() {
-        const _options = [{ label: "Albania", value: 355 }];
         const bankList = this.state.bankList.map((i, index) => (
             { label: i, value: index }
         ))

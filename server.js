@@ -8,7 +8,7 @@ const apiRoute = require('./src/route/api');
 
 // mongodb
 const mongoose = require('mongoose');
-const dbName = "dbCarbo"
+const dbName = "dbCardbo"
 const usrName = "Mike"
 const usrPswd = "12345"
 mongoURL = `mongodb+srv://${usrName}:${usrPswd}@cluster0-snwtj.mongodb.net/${dbName}?retryWrites=true&w=majority`

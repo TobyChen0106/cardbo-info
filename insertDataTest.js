@@ -16,7 +16,7 @@ const mongoose = require('mongoose');
 // })
 
 
-const dbName = "dbCarbo"
+const dbName = "dbCardbo"
 const usrName = "Mike"
 const usrPswd = "12345"
 mongoURL = `mongodb+srv://${usrName}:${usrPswd}@cluster0-snwtj.mongodb.net/${dbName}?retryWrites=true&w=majority`
@@ -30,7 +30,7 @@ db.once('open', () => {
     console.log('MongoDB connected!');
 })
 
-Offer.find({}, (err, data) => {
+Card.find({}, (err, data) => {
     if (err) {
         console.log(err);
     }
