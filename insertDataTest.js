@@ -36,11 +36,21 @@ Offer.find({}, (err, data) => {
     }
     else {
         for(var i=0 ; i<data.length ; ++i){
-            data[i].bankName = "台新銀行";
-            console.log(data[i]);
-            data[i].save();
+            // console.log(data[i].reward);
+            if(!data[i].reward){
+                data[i].reward ={
+                    form:"",
+                    contents: "",
+                    limits:[""],
+                    timingToOffer: "",
+                    places: [""],
+                    notes: ""
+                }
+                data[i].save();
+                console.log(data[i]);
+            }
         }
-        // console.log(data);
+        
     }
 })
 

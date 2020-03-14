@@ -114,6 +114,7 @@
     border-style: solid;
     border-width: 0.2rem;
     border-radius: 0.4rem;
+    width:20rem;
 }
 .result{
     word-wrap: break-word;
@@ -121,7 +122,7 @@
 .ReactMarkdown-pane{
     padding:0.5rem;
     height:100%;
-    width:20rem;
+    width:100%;
     min-height: 10rem;
 }
 
