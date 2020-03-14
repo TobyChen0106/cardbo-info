@@ -16,16 +16,15 @@ class InfoCard extends Component {
     }
 
     render() {
-        // console.log(this.state.cardName)
         return (
             <div className="card-data-container">
                 <div className="cardTitle">
-                    <div className="cardName">{this.state.cardName}</div>
-                    <div className="infoID">{this.state.infoID}</div>
+                    <div className="cardName">{this.props.cardName}</div>
+                    <div className="infoID">{this.props.infoID}</div>
                 </div>
 
-                <div className="infoTitle">{this.state.infoTitle}</div>
-                <div className="infoSummary">{this.state.infoSummary}</div>
+                <div className="infoTitle">{this.props.infoTitle}</div>
+                <div className="infoSummary">{this.props.infoSummary}</div>
             </div>
         )
     }

@@ -63,6 +63,14 @@ const OfferSchema = new Schema({
         type: String,
         required: true
     },
+    cardName: {
+        type: String,
+        // required: true
+    },
+    bankName: {
+        type: String,
+        // required: true
+    },
     expiration: {
         type: ExpirationSchema,
         required: true

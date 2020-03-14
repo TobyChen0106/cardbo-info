@@ -211,6 +211,23 @@
 .select-holder{
     color:black;
     vertical-align: center;
-    width:40%;
+    width:100%;
     margin-left:2%;
+}
+
+.selcet-bank-container{
+    color:black;
+    vertical-align: center;
+    width:100%;
+    margin-left:2%;
+}
+.selcet-card-container{
+    color:black;
+    vertical-align: center;
+    width:100%;
+    margin-left:2%;
+}
+
+.search-holder{
+    width:60%;
 }

@@ -30,12 +30,17 @@ db.once('open', () => {
     console.log('MongoDB connected!');
 })
 
-Card.find({}, (err, data) => {
+Offer.find({}, (err, data) => {
     if (err) {
         console.log(err);
     }
     else {
-        console.log(data);
+        for(var i=0 ; i<data.length ; ++i){
+            data[i].bankName = "台新銀行";
+            console.log(data[i]);
+            data[i].save();
+        }
+        // console.log(data);
     }
 })
 
