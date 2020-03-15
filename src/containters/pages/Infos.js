@@ -120,7 +120,9 @@ class Infos extends Component {
 						infoSummary: data.offerAbstract,
 						startDate: data.expiration.beginDate,
 						dueDate: data.expiration.endDate,
-						contents: data.reward.contents
+						contents: data.reward.contents,
+						bankName: data.bankName,
+						cardName: data.cardName,
 					}
 				});
 			}).then(() => {
@@ -151,32 +153,51 @@ class Infos extends Component {
 						infoSummary: summary,
 						startDate: startDate,
 						dueDate: dueDate,
-						contents: contents
+						contents: contents,
+						bankName: this.state.infoData.bankName,
+						cardName: this.state.infoData.cardName,
 					}
 				});
+				var newInfo = {
+					infoID: this.state.id,
+					infoTitle: title,
+					infoSummary: summary,
+					dueDate: dueDate,
+					startDate: startDate,
+					contents: contents
+				}
+				fetch('/api/saveinfos', {
+					method: 'POST',
+					body: JSON.stringify(newInfo),
+					headers: new Headers({
+						'Content-Type': 'application/json'
+					})
+				}).catch(function (error) {
+					window.alert("[Error] " + error);
+				}).then();
 			});
 		}
 	}
 
-	handleSave = () => {
-		var newInfo = {
-			infoID: this.state.id,
-			infoTitle: this.state.infoData.infoTitle,
-			infoSummary: this.state.infoData.infoSummary,
-			dueDate: this.state.infoData.dueDate,
-			startDate: this.state.infoData.startDate,
-			contents: this.state.infoData.contents
-		}
-		fetch('/api/saveinfos', {
-			method: 'POST',
-			body: JSON.stringify(newInfo),
-			headers: new Headers({
-				'Content-Type': 'application/json'
-			})
-		}).catch(function (error) {
-			window.alert("[Error] " + error);
-		}).then()
-	}
+	// handleSave = () => {
+	// 	var newInfo = {
+	// 		infoID: this.state.id,
+	// 		infoTitle: this.state.infoData.infoTitle,
+	// 		infoSummary: this.state.infoData.infoSummary,
+	// 		dueDate: this.state.infoData.dueDate,
+	// 		startDate: this.state.infoData.startDate,
+	// 		contents: this.state.infoData.contents
+	// 	}
+	// 	fetch('/api/saveinfos', {
+	// 		method: 'POST',
+	// 		body: JSON.stringify(newInfo),
+	// 		headers: new Headers({
+	// 			'Content-Type': 'application/json'
+	// 		})
+	// 	}).catch(function (error) {
+	// 		window.alert("[Error] " + error);
+	// 	}).then();
+	// }
 	onCheck = (e, i) => {
 		console.log(e);
 		console.log(i);
@@ -343,8 +364,9 @@ class Infos extends Component {
 							<div className="edit-mode-container">
 
 								<div className="basic-data">
-									<div>優惠 ID: {this.state.id}</div>
-
+									優惠 ID: {this.state.id}<br />
+									銀行: {this.state.infoData.bankName}<br />
+									信用卡: {this.state.infoData.cardName}<br />
 								</div>
 								<div className="title">
 									<div>Title</div>
@@ -364,7 +386,7 @@ class Infos extends Component {
 								</div>
 								<div className="buntton-holder">
 									<button className="back-button" onClick={this.handleBack}><NavLink to="/infos" style={{ textDecoration: 'none' }}>BACK</NavLink></button>
-									<button className="save-button" onClick={this.handleSave}>SAVE</button>
+									{/* <button className="save-button" onClick={this.handleSave}>SAVE</button> */}
 								</div>
 								<div className="editor-container">
 									<div className="contents-holder">

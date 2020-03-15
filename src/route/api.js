@@ -121,7 +121,6 @@ router.get('/infos/:id', (req, res) => {
 
 router.post('/saveinfos', (req, res) => {
     const infodata = req.body;
-    console.log(infodata)
     Offer.findOne({ offerID: infodata.infoID }, (err, infoResponse) => {
         if (err) {
             console.log(err);
