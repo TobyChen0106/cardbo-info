@@ -30,7 +30,7 @@ db.once('open', () => {
     console.log('MongoDB connected!');
 })
 
-Card.find({}, (err, data) => {
+user_new.find({}, (err, data) => {
     if (err) {
         console.log(err);
     }
