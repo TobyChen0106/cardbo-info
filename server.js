@@ -6,11 +6,8 @@ const app = express();
 var bodyParser = require('body-parser')
 const apiRoute = require('./src/route/api');
 //wake
-const wakeUpDyno = require("/src/route/wokeDyno.js");
-const DYNO_URL = "https://cardbo-register.herokuapp.com/";
-app.listen(PORT, () => {
-  wakeUpDyno(DYNO_URL); // will start once server starts
-})
+const wakeUpDyno = require("./src/route/wakeUpDyno.js");
+
 // mongodb
 const mongoose = require('mongoose');
 const dbName = "dbCardbo"
@@ -41,5 +38,10 @@ app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(port);
+// wake
+const DYNO_URL = "https://cardbo-register.herokuapp.com/";
+app.listen(port, () => {
+  wakeUpDyno(DYNO_URL); // will start once server starts
+})
+// app.listen(port);
 
