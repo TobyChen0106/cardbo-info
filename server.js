@@ -5,7 +5,12 @@ const port = process.env.PORT || 80;
 const app = express();
 var bodyParser = require('body-parser')
 const apiRoute = require('./src/route/api');
-
+//wake
+const wakeUpDyno = require("/src/route/wokeDyno.js");
+const DYNO_URL = "https://cardbo-register.herokuapp.com/";
+app.listen(PORT, () => {
+  wakeUpDyno(DYNO_URL); // will start once server starts
+})
 // mongodb
 const mongoose = require('mongoose');
 const dbName = "dbCardbo"
