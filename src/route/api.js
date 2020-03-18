@@ -75,7 +75,6 @@ router.get('/cards', (req, res) => {
             console.log("[ERROR] EMPTY DATA!");
         } else {
             res.json(data);
-            // console.log(data);
         }
     })
 });
@@ -109,7 +108,7 @@ router.get('/all-infos', (req, res) => {
 
 router.get('/infos/:id', (req, res) => {
     const offerID = req.params.id;
-    console.log(offerID);
+    // console.log(offerID);
     Offer.findOne({ offerID: offerID }, (err, data) => {
         if (err) {
             console.log(err);
@@ -122,7 +121,6 @@ router.get('/infos/:id', (req, res) => {
 
 router.post('/saveinfos', (req, res) => {
     const infodata = req.body;
-    console.log(infodata)
     Offer.findOne({ offerID: infodata.infoID }, (err, infoResponse) => {
         if (err) {
             console.log(err);
@@ -136,7 +134,7 @@ router.post('/saveinfos', (req, res) => {
             infoResponse.expiration.endDate = infodata.dueDate;
             infoResponse.reward.contents = infodata.contents;
 
-            console.log(infoResponse);
+            // console.log(infoResponse);
             infoResponse.save().then((user) => {
                 res.json("Data saved!");
             })

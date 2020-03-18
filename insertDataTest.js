@@ -30,12 +30,27 @@ db.once('open', () => {
     console.log('MongoDB connected!');
 })
 
-user_new.find({}, (err, data) => {
+Offer.find({}, (err, data) => {
     if (err) {
         console.log(err);
     }
     else {
-        console.log(data);
+        for(var i=0 ; i<data.length ; ++i){
+            // console.log(data[i].reward);
+            if(!data[i].reward){
+                data[i].reward ={
+                    form:"",
+                    contents: "",
+                    limits:[""],
+                    timingToOffer: "",
+                    places: [""],
+                    notes: ""
+                }
+                data[i].save();
+                console.log(data[i]);
+            }
+        }
+        
     }
 })
 

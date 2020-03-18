@@ -114,6 +114,7 @@
     border-style: solid;
     border-width: 0.2rem;
     border-radius: 0.4rem;
+    width:20rem;
 }
 .result{
     word-wrap: break-word;
@@ -121,7 +122,7 @@
 .ReactMarkdown-pane{
     padding:0.5rem;
     height:100%;
-    width:20rem;
+    width:100%;
     min-height: 10rem;
 }
 
@@ -211,6 +212,23 @@
 .select-holder{
     color:black;
     vertical-align: center;
-    width:40%;
+    width:100%;
     margin-left:2%;
+}
+
+.selcet-bank-container{
+    color:black;
+    vertical-align: center;
+    width:100%;
+    margin-left:2%;
+}
+.selcet-card-container{
+    color:black;
+    vertical-align: center;
+    width:100%;
+    margin-left:2%;
+}
+
+.search-holder{
+    width:60%;
 }
